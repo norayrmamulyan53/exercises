@@ -6,7 +6,12 @@ class Vehicle:
     Args:
         max_speed: The maximum and constant travelling speed (km/hr)
         mileage: The passed mileage (km)
+    Shared Variables:
+        color: To set "color" property for all child instances
+        of Vehicle to white
     """
+
+    color = "white"
 
     def __init__(self, max_speed, mileage):
         self.max_speed = max_speed
@@ -21,5 +26,7 @@ class Bus(Vehicle):
     This is a child class which inherits all variables and methods
     of its parent class
     """
-    pass
+
+    def __init__(self, max_speed, mileage):
+        super().__init__(max_speed, mileage)
 
