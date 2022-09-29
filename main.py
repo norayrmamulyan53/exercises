@@ -18,8 +18,9 @@ class Vehicle:
 
 class Bus(Vehicle):
     """
-    This is a child class which inherits all variables and methods
-    of its parent class
+    This is a child class which inherits all properties and methods
+    of its parent class and also adds a new property
     """
-    pass
-
+    def __init__(self, max_speed, mileage, seating_capacity=50):
+        super().__init__(max_speed, mileage)
+        self.seating_capacity = seating_capacity
