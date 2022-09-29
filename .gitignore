@@ -24,6 +24,7 @@ pip-wheel-metadata/
 share/python-wheels/
 *.egg-info/
 .installed.cfg
+pyvenv.cfg
 *.egg
 MANIFEST
 
@@ -109,7 +110,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-
+bin/
 # Spyder project settings
 .spyderproject
 .spyproject
