@@ -15,3 +15,11 @@ class Vehicle:
     def travel_time(self):
         return f"{self.mileage // self.max_speed} hr"
 
+
+class Bus(Vehicle):
+    """
+    This is a child class which inherits all variables and methods
+    of its parent class
+    """
+    pass
+
