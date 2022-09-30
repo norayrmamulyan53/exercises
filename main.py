@@ -10,10 +10,14 @@ class IteratorCheck:
         return self
 
     def __next__(self):
-        self.count += 1
+        if self.count != 10:
+            self.count += 1
+            return self.count
+        else:
+            raise StopIteration
 
 
-
+bla = IteratorCheck()
 
 for i in bla:
     print(i)
