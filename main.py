@@ -1,6 +1,6 @@
 class Node:
     """
-    Node is a linked list item
+    A class to represent each node of the linked list.
     -----
     Args:
         data: contains the value to be stored in the node
@@ -13,14 +13,18 @@ class Node:
         self.next = nxt
 
     def __repr__(self):
-        """Gives more helpful representation"""
+        """
+        Returns the data of the node
+        """
         return self.data
 
 
 class LinkedList:
     """
-    Linked list is an ordered collection.
-    Linked lists store references as part of their own nodes.
+    This class is an ordered collection.
+    It stores ireferences of next nodes as
+        part of their own nodes.
+
     """
 
     def __init__(self, nodes=None):
@@ -37,7 +41,7 @@ class LinkedList:
         node = self.head
         nodes = []
         while node is not None:
-            nodes.append(node.data)
+            nodes.append(str(node.data))
             node = node.next
         nodes.append("None")
         return " -> ".join(nodes)
@@ -119,6 +123,4 @@ class LinkedList:
                 return
             previous_node = node
         raise Exception("Node with data '%s' not found" % target_node_data)
-
-
 
