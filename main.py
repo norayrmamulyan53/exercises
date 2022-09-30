@@ -6,8 +6,6 @@ class Node:
         data: contains the value to be stored in the node
         nxt: contains a reference to the next node on the list
             by default is "None"
-    Methods:
-        __repr__: gives more helpful representation
     """
 
     def __init__(self, data, nxt=None):
@@ -15,6 +13,7 @@ class Node:
         self.next = nxt
 
     def __repr__(self):
+        """Gives more helpful representation"""
         return self.data
 
 
@@ -44,7 +43,7 @@ class LinkedList:
         return " -> ".join(nodes)
 
     def __iter__(self):
-        """Gives a list with nodes (ordered)"""
+        """Makes the instance to traverse through its nodes."""
         node = self.head
         while node is not None:
             yield node
