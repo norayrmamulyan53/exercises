@@ -12,6 +12,9 @@ class Vehicle:
         self.max_speed = max_speed
         self.mileage = mileage
 
+    def seating_capacity(self, capacity):
+        return capacity
+
     def travel_time(self):
         return f"{self.mileage // self.max_speed} hr"
 
@@ -21,6 +24,6 @@ class Bus(Vehicle):
     This is a child class which inherits all properties and methods
     of its parent class and also adds a new property
     """
-    def __init__(self, max_speed, mileage, seating_capacity=50):
-        super().__init__(max_speed, mileage)
-        self.seating_capacity = seating_capacity
+    def seating_capacity(self, capacity=50):
+        return super().seating_capacity(capacity)
+
