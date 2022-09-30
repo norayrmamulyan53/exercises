@@ -3,9 +3,11 @@ class Node:
     A class to represent each node of the linked list.
     -----
     Args:
-        data: contains the value to be stored in the node
-        nxt: contains a reference to the next node on the list
-            by default is "None"
+        data: any
+            contains the value to be stored in the node
+        nxt: Node
+            contains a reference to the next node on the list
+                by default is "None"
     """
 
     def __init__(self, data, nxt=None):
@@ -22,12 +24,26 @@ class Node:
 class LinkedList:
     """
     This class is an ordered collection.
-    It stores ireferences of next nodes as
-        part of their own nodes.
+    It represents linked list.
+
+    -------
+    Methods:
+        append: adds a new node at the end of the linked list
+        prepend: prepending a new node from the start of the list.
 
     """
 
     def __init__(self, nodes=None):
+        """
+        Constructs all the necessary attributes for the LinkedList object.
+        Also allows you to quickly create linked lists with some data,if
+        in function passed a list of data.
+
+        ----------
+        Args:
+            nodes : list[]
+                list of data
+        """
         self.head = None
         if nodes is not None:
             node = Node(data=nodes.pop(0))
@@ -57,20 +73,22 @@ class LinkedList:
         """
         Prepending a new node from the start of the list.
 
-        ----
+        ----------
         Args:
-            node: new node that need to be added
+            node : Node
+                new node that need to be added
         """
         node.next = self.head
         self.head = node
 
     def append(self, node):
         """
-        Appending a new node at the end of the list.
+        Inserting a new node at the end of the list.
 
-        ----
+        ----------
         Args:
-            node: new node that need to be added
+            node : Node
+                new node that need to be added
         """
         if self.head is None:
             self.head = node
@@ -80,19 +98,21 @@ class LinkedList:
             current_node = current_node.next
         current_node.next = node
 
-    def insert(self, val, position):
+    def insert(self, data, position):
         """
-        Inserting new node at specified position
+        Inserting new node at the specified position
 
         ----
         Args:
-            val: new node data to insert into linked list
-            position: the position to insert the specified node
+            data: any
+                new node data to insert into linked list
+            position: int
+                the position to insert the specified node
         """
         if self.head is None and position != 0:
             raise Exception("Specified position is not reachable !")
 
-        newNode = Node(val)
+        newNode = Node(data)
         if position == 0:
             self.prepend(newNode)
         else:
@@ -107,7 +127,8 @@ class LinkedList:
 
         ----
         Args:
-            target_node_data: target node's data
+            target_node_data: any
+                target node's data
         """
         if self.head is None:
             raise Exception("List is empty")
@@ -123,4 +144,3 @@ class LinkedList:
                 return
             previous_node = node
         raise Exception("Node with data '%s' not found" % target_node_data)
-
