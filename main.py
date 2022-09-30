@@ -1,13 +1,9 @@
 class IteratorCheck:
     def __init__(self):
-        pass
+        self.count = 0
 
     def __repr__(self):
         return "This is my cutie"
-
-    def __iter__(self):
-        self.count = 0
-        return self
 
     def __next__(self):
         if self.count != 10:
@@ -15,6 +11,9 @@ class IteratorCheck:
             return self.count
         else:
             raise StopIteration
+        return self
+
+    def __next__(self):
 
 
 bla = IteratorCheck()
