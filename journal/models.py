@@ -4,7 +4,7 @@ from django.db import models
 class Subject(models.Model):
     name = models.CharField(max_length=50, verbose_name="անուն")
     teacher = models.ForeignKey('Teacher', on_delete=models.CASCADE, verbose_name="Դասատու",
-                                related_name='subject_teacher')
+                                related_name='subject_teacher', blank=True, null=True)
     students = models.ManyToManyField('Student', blank=True)
 
     class Meta:
@@ -28,8 +28,9 @@ class Person(models.Model):
 
 
 class Teacher(Person, models.Model):
-    students = models.ManyToManyField('Student', blank=True)
-    subject = models.ForeignKey('Subject', on_delete=models.CASCADE, related_name='teacher_subject')
+    students = models.ManyToManyField('Student', blank=True, verbose_name="Աշակերտներ   ")
+    subject = models.ForeignKey('Subject', on_delete=models.CASCADE, verbose_name="Առարկա",
+                                related_name='teacher_subject')
 
     class Meta:
         verbose_name = "Դասատու"
@@ -38,7 +39,8 @@ class Teacher(Person, models.Model):
 
 
 class Student(Person, models.Model):
-    teachers = models.ManyToManyField('Teacher', blank=True)
+    teachers = models.ManyToManyField('Teacher', blank=True, verbose_name="Դասատուներ")
+    subjects = models.ManyToManyField('Subject', blank=True, verbose_name="Առարկաներ")
 
     class Meta:
         verbose_name = "Աշակերտ"
