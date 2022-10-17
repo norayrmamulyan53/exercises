@@ -1,1 +1,12 @@
-Hello World
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Members</h1>
+<hr>
+    {% for i in all %}
+        <p>Name: {{i.fname}} {{i.lname}}</p>
+        <p>Age: {{i.age}}</p>
+        <p>Email: {{i.email}}</p>
+<hr>
+    {% endfor %}
+{% endblock %}

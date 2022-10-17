@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <h1>Register page</h1>
+<hr>
+<form method="POST" action="{% url 'join' %}">
+  <div class="mb-3">
+    <label for="exampleInputFirstName" class="form-label">First name</label>
+    <input type="text" class="form-control" id="exampleInputFirstName" name="fname">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputLastName" class="form-label">Last name</label>
+    <input type="text" class="form-control" id="exampleInputLastName" name="lname">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputAge" class="form-label">Age</label>
+    <input type="number" class="form-control" id="exampleInputAge" name="age">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  name="email">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" name="passwd">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+  {% csrf_token %}
+</form>
+{% endblock %}
