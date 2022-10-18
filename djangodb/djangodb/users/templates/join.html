@@ -4,7 +4,7 @@
 {% block content %}
     <h1>Register page</h1>
 <hr>
-<form method="POST" action="{% url 'join' %}">
+<form method="POST" action="{% url 'users:login' %}">
   <div class="mb-3">
     <label for="exampleInputFirstName" class="form-label">First name</label>
     <input type="text" class="form-control" id="exampleInputFirstName" name="fname">
